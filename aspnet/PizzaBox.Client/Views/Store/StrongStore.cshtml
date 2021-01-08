@@ -1,0 +1,16 @@
+@model PizzaBox.Client.Models.StoreViewModel
+
+@* strong-typed view *@
+
+@{
+  Layout = null;
+}
+
+<ul>
+  @{
+    foreach (var store in Model.Stores)
+    {
+      <li>@store</li>
+    }
+  }
+</ul>

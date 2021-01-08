@@ -49,15 +49,15 @@ The project should support objects of Customer, Store, Order, Pizza.
 
 ## technologies
 
-+ .NET Core - ASP.NET MVC
++ .NET Core - ASP.NET Core MVC
 + .NET Core - C#
 + .NET Core - EF + SQL
 + .NET Core - xUnit
 
 ## timelines
 
-+ due on Jan-18 at 11p Central
-+ present on Jan-19 starting at 9.30a Central
++ due on Jan-19 at 11p Central
++ present on Jan-20 starting at 9.30a Central
 + implement as many requirements as you can
 
 ## customer story
