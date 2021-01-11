@@ -44,14 +44,14 @@ namespace PizzaBox.Client
 
       app.UseRouting();
 
-      app.UseAuthorization();
+      //app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapControllerRoute(
-                  name: "default",
-                  pattern: "{controller=Home}/{action=Index}/{id?}");
+        endpoints.MapControllers(); // attribute routing
       });
+
+      // [REQ] http://localhost:5000/ --> [LOCATION] http://localhost:5000/home/index
     }
   }
 }

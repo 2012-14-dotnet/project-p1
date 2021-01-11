@@ -10,6 +10,10 @@ namespace PizzaBox.Client.Controllers
     public IActionResult Get()
     {
       var stores = new StoreViewModel(); // static type inference
+      StoreViewModel story = new StoreViewModel();
+
+
+
       dynamic stores2 = new StoreViewModel();
       stores2 = 10;
 
@@ -18,7 +22,8 @@ namespace PizzaBox.Client.Controllers
       ViewData["Stores"] = stores.Stores; // dictionary object, Dictionary<string, object>
 
       // redirect data binding
-      TempData["Stores"] = stores.Stores;
+      TempData["Stores"] = stores.Stores; //Dictionary<string, object>, serialization
+      object s = new StoreViewModel();
 
       return View("StrongStore", new StoreViewModel());
     }

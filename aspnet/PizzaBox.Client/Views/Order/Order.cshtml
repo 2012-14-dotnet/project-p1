@@ -1,0 +1,51 @@
+@model PizzaBox.Client.Models.OrderViewModel
+
+@*
+  - HTML helpers
+  - TAG helpers
+  - CSRF = cross site request forgery
+*@
+
+@* html way *@
+<form action="/order/post" method="POST">
+  @foreach (var item in Model.Stores)
+  {
+    <input type="radio" name="store" id="@item" value="@item">
+    <label for="@item">@item</label>
+  }
+
+  @foreach (var item in Model.Pizzas)
+  {
+    <input type="checkbox" name="pizza-selection" id="@item" value="@item">
+    <label for="@item">@item</label>
+  }
+
+  <button type="submit">place order</button>
+</form>
+
+@* html helper way *@
+@using (@Html.BeginForm("post", "order", null, FormMethod.Post))
+{
+  @Html.AntiForgeryToken()
+
+  @foreach (var item in Model.Stores)
+  {
+    @Html.RadioButtonFor(m => m.Store, item)
+    @Html.LabelFor(m => m.Store, item)
+    @Html.ValidationMessageFor(m => m.Store)
+  }
+
+  <button type="submit">place order</button>
+}
+
+@* tag helper way *@
+<form asp-action="post" asp-controller="order" method="POST" asp-antiforgery="true">
+  @foreach (var item in Model.Stores)
+  {
+   <input type="radio" asp-for="@Model.Store" value="@item" />
+   <label for="@item">@item</label>
+
+  }
+
+  <button type="submit">place order</button>
+</form>
