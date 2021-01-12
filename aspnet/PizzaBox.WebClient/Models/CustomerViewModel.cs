@@ -7,10 +7,10 @@ namespace PizzaBox.WebClient.Models
     public string Name { get; set; }
     public OrderViewModel Order { get; set; }
 
-    public CustomerViewModel(IConfiguration configuration)
+    public CustomerViewModel()
     {
       Name = "fred";
-      Order = new OrderViewModel(configuration);
+      Order = new OrderViewModel();
     }
   }
 }

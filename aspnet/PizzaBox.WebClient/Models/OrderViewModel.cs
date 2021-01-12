@@ -8,17 +8,9 @@ namespace PizzaBox.WebClient.Models
 {
   public class OrderViewModel
   {
-    private readonly PizzaBoxContext _ctx;
-
     public List<string> Stores { get; set; }
 
     [Required]
     public string Store { get; set; }
-
-    public OrderViewModel(IConfiguration configuration)
-    {
-      _ctx = new PizzaBoxContext(configuration);
-      Stores = _ctx.Stores.Select(s => s.Name).ToList();
-    }
   }
 }
